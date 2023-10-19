@@ -51,7 +51,15 @@ def check_pairkind(hand):
     return 0
 
 def check_royalflush(hand): #check if all suits are the same and contains all royal cards(royal flush)
-    pass
+    royal_flush = 0
+    royalty = 0
+    for i in range(0, 5):
+        if hand[i][1] == ranks[9] or hand[i][1] == ranks[10] or hand[i][1] == ranks[11] or hand[i][1] == ranks[12]:
+            royalty += 1
+    if royalty == 5:
+        if hand[1][0] == hand[2][0] == hand[3][0] == hand[4][0] == hand[5][0]:
+            royal_flush += 1
+    return royal_flush
 
 def check_straightflush(hand): #check if all suits are the same and cards are in sequential order(straight flush)
     pass
@@ -63,7 +71,10 @@ def check_fullhouse(hand): #check if 3 cards have the same rank and 2 cards have
     pass
 
 def check_flush(hand): #check if all suits are the same
-    pass
+    flush = 0
+    if hand[1][0] == hand[2][0] == hand[3][0] == hand[4][0] == hand[5][0]:
+        flush += 1 
+    return flush
 
 def check_straight(hand): #check if all cards are in sequential order
     pass
