@@ -18,10 +18,14 @@ for suit in suits:
     for rank in ranks:
         deck[index] = [suit, rank]
         index += 1
+        
+#Defines values for cards so I can sort their rank from least to greatest in the future
+def card_value(card):
+    values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 11, 'Q': 12, 'K': 13, 'A': 14}
+    return values[card[1]]
 
 #create a copy of the deck so that we can remove cards that are selected for the hand
 #simulate a poker hand by randomly selecting 5 cards from the deck
-
 def generate_hand():
     hand = stdarray.create2D(5, 2, 0)
     deckcopy = deck[:] #create a copy of the deck so that we can remove cards that are selected for the hand
@@ -77,7 +81,9 @@ def check_flush(hand): #check if all suits are the same
     return flush
 
 def check_straight(hand): #check if all cards are in sequential order
-    pass
+    straight = 0 
+    if hand[0][1] == hand[1][1] - 1 == hand[2][1] - 2 == hand[3][1] -3 == hand[2][1] -4:
+        straight +=1  
 
 def check_threekind(hand): #check if 3 cards have the same rank
     pass
