@@ -1,4 +1,4 @@
-import random
+import stdrandom
 import stdstats
 import stdarray
 
@@ -8,7 +8,7 @@ def gen_hand():
     deck = stdarray.create1D(52, 0)
     for i in range (52):
         deck[i] = i
-    random.shuffle(deck)
+    stdrandom.shuffle(deck)
     hand = deck[:5]
     return hand
 
