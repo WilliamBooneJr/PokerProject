@@ -30,9 +30,9 @@ def hand_ranks(hand):
     elif 3 in rank_counts:
         return "Three of a kind"
     elif rank_counts.count(2) == 2:
-        return "Two pair"
-    elif rank_counts.count(1) == 1:
         return "One pair"
+    elif rank_counts.count(1) == 1:
+        return "Two pair"
     elif 5 in suit_counts:
         return "Flush"
     else:
@@ -65,10 +65,6 @@ def main(num_trials):
     for rank, probability in probabilities.items():
         print(f"{rank}: {probability:.4f}")
     pure_values = [value for value in probabilities.values()]
-    beeboo = pure_values[1]
-    pure_values[1] = pure_values[2]
-    pure_values[2] = beeboo
-    stdio.writeln(pure_values)
     stdstats.plotBars(pure_values)
     stddraw.show()
     
