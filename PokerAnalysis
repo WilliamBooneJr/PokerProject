@@ -1,6 +1,8 @@
 import stdrandom
 import stdstats
 import stdarray
+import stddraw
+import stdio
 
 
 def gen_hand():
@@ -61,6 +63,13 @@ def main(num_trials):
     probabilities = calc_prob(counts, num_trials)
     for rank, probability in probabilities.items():
         print(f"{rank}: {probability:.4f}")
-
+    pure_values = [value for value in probabilities.values()]
+    beeboo = pure_values[1]
+    pure_values[1] = pure_values[2]
+    pure_values[2] = beeboo
+    stdio.writeln(pure_values)
+    stdstats.plotBars(pure_values)
+    stddraw.show()
+    
 if __name__ == "__main__":
     main(1000)
