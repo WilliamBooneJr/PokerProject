@@ -1,12 +1,14 @@
-import random
+import stdrandom
 import stdstats
 import stdarray
 
 
 def gen_hand():
     #The gen_hand Function will create a deck of 52 cards and shuffle them. Will then draw 5 cards from the deck and return them as a hand.
-    deck = list(range(52))
-    random.shuffle(deck)
+    deck = stdarray.create1D(52, 0)
+    for i in range (52):
+        deck[i] = i
+    stdrandom.shuffle(deck)
     hand = deck[:5]
     return hand
 
@@ -26,7 +28,7 @@ def hand_ranks(hand):
         return "Three of a kind"
     elif rank_counts.count(2) == 2:
         return "Two pair"
-    elif rank_counts.count(2) == 1:
+    elif rank_counts.count(1) == 1:
         return "One pair"
     elif 5 in suit_counts:
         return "Flush"
