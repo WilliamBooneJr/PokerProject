@@ -63,7 +63,7 @@ def main(num_trials):
     counts = simulate(num_trials)
     probabilities = calc_prob(counts, num_trials)
     for rank, probability in probabilities.items():
-        print(f"{rank}: {probability:.4f}")
+        stdio.writeln(f"{rank}: {probability:.4f}")
     pure_values = [value for value in probabilities.values()]
     stdstats.plotBars(pure_values)
     stddraw.show()
